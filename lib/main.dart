@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'views/first_view.dart';
+import 'core/theme/app_theme.dart'; 
+import 'views/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,11 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const FirstView());
+    return GestureDetector(
+        onTap: WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus,
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: AppTheme().light,
+          darkTheme: AppTheme().dark, // to be enabled soon
+          home: const SplashScreen(),
+        ));
   }
 }
