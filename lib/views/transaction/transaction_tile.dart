@@ -2,6 +2,8 @@ import 'package:example/constants/app_colors.dart';
 import 'package:example/constants/svg_strings.dart';
 import 'package:example/core/extensions/extensions/context.dart';
 import 'package:example/core/extensions/extensions/index.dart';
+import 'package:example/models/transaction.dart';
+import 'package:example/models/transaction_type.dart';
 import 'package:example/widgets/price_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +12,23 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'transaction_details.dart';
 
 class TransactionTile extends StatelessWidget {
-  const TransactionTile({Key? key}) : super(key: key);
+  final Transaction data;
+  const TransactionTile({Key? key, required this.data}) : super(key: key);
 
   /// build icon based on transaction type
   Widget _buildIcon(BuildContext context) {
-    Color color = context.primaryColor;
-    String icon = SvgStrings.arrowUp;
+    Color color = AppColors.credit;
+    String icon = SvgStrings.arrowDown;
+    switch (data.type) {
+      case TransactionType.withdrawal:
+      case TransactionType.transafer:
+        color = context.primaryColor;
+        icon = SvgStrings.arrowUp;
+        break;
+      case TransactionType.deposit:
+      default:
+    }
+
     return Material(
         color: color.withOpacity(.2),
         shape: const CircleBorder(),
@@ -37,8 +50,10 @@ class TransactionTile extends StatelessWidget {
       color: context.cardColor,
       child: InkWell(
         onTap: () {
-          Navigator.push(context,
-              CupertinoPageRoute(builder: (c) => const TransactionDetails()));
+          Navigator.push(
+              context,
+              CupertinoPageRoute(
+                  builder: (c) => TransactionDetails(data: data)));
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 16),
@@ -52,23 +67,23 @@ class TransactionTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Money received from Michael',
+                    data.comment ?? data.type.name.toTitleCase(),
                     style: context.bodyText1?.copyWith(),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   // 8.0.h,
                   Text(
-                    DateTime.now().readableFormat,
+                    data.date?.readableFormat ?? '',
                     style: context.caption,
                   )
                 ],
               )),
               40.0.w,
               PriceWidget(
-                price: 50000,
-                prefix: "+ ",
-                style: context.headline5?.copyWith(color: _buildColor),
+                price: data.amount.abs(),
+                prefix: "${data.isPositive ? '+' : '-'} ",
+                style: context.headline5?.copyWith(color: data.color),
               ),
             ],
           ),

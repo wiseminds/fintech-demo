@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'core/theme/app_theme.dart'; 
+import 'core/theme/app_theme.dart';
+import 'dependency_injection.dart';
 import 'views/splash_screen.dart';
 
-void main() {
+void main() async {
+  await DependencyInjection.bootstrap();
   runApp(const MyApp());
 }
 

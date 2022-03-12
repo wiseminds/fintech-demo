@@ -22,7 +22,7 @@ class _$TransactionSerializer implements StructuredSerializer<Transaction> {
       serializers.serialize(object.transactionId,
           specifiedType: const FullType(int)),
       'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      serializers.serialize(object.t, specifiedType: const FullType(String)),
       'amount',
       serializers.serialize(object.amount,
           specifiedType: const FullType(double)),
@@ -67,7 +67,7 @@ class _$TransactionSerializer implements StructuredSerializer<Transaction> {
               specifiedType: const FullType(int)) as int;
           break;
         case 'type':
-          result.type = serializers.deserialize(value,
+          result.t = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'amount':
@@ -101,7 +101,7 @@ class _$Transaction extends Transaction {
   @override
   final int transactionId;
   @override
-  final String type;
+  final String t;
   @override
   final double amount;
   @override
@@ -118,7 +118,7 @@ class _$Transaction extends Transaction {
 
   _$Transaction._(
       {required this.transactionId,
-      required this.type,
+      required this.t,
       required this.amount,
       this.comment,
       this.entryDate,
@@ -127,7 +127,7 @@ class _$Transaction extends Transaction {
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         transactionId, 'Transaction', 'transactionId');
-    BuiltValueNullFieldError.checkNotNull(type, 'Transaction', 'type');
+    BuiltValueNullFieldError.checkNotNull(t, 'Transaction', 't');
     BuiltValueNullFieldError.checkNotNull(amount, 'Transaction', 'amount');
     BuiltValueNullFieldError.checkNotNull(
         currencyCode, 'Transaction', 'currencyCode');
@@ -146,7 +146,7 @@ class _$Transaction extends Transaction {
     if (identical(other, this)) return true;
     return other is Transaction &&
         transactionId == other.transactionId &&
-        type == other.type &&
+        t == other.t &&
         amount == other.amount &&
         comment == other.comment &&
         entryDate == other.entryDate &&
@@ -160,7 +160,7 @@ class _$Transaction extends Transaction {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, transactionId.hashCode), type.hashCode),
+                    $jc($jc($jc(0, transactionId.hashCode), t.hashCode),
                         amount.hashCode),
                     comment.hashCode),
                 entryDate.hashCode),
@@ -172,7 +172,7 @@ class _$Transaction extends Transaction {
   String toString() {
     return (newBuiltValueToStringHelper('Transaction')
           ..add('transactionId', transactionId)
-          ..add('type', type)
+          ..add('t', t)
           ..add('amount', amount)
           ..add('comment', comment)
           ..add('entryDate', entryDate)
@@ -190,9 +190,9 @@ class TransactionBuilder implements Builder<Transaction, TransactionBuilder> {
   set transactionId(int? transactionId) =>
       _$this._transactionId = transactionId;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  String? _t;
+  String? get t => _$this._t;
+  set t(String? t) => _$this._t = t;
 
   double? _amount;
   double? get amount => _$this._amount;
@@ -220,7 +220,7 @@ class TransactionBuilder implements Builder<Transaction, TransactionBuilder> {
     final $v = _$v;
     if ($v != null) {
       _transactionId = $v.transactionId;
-      _type = $v.type;
+      _t = $v.t;
       _amount = $v.amount;
       _comment = $v.comment;
       _entryDate = $v.entryDate;
@@ -248,8 +248,7 @@ class TransactionBuilder implements Builder<Transaction, TransactionBuilder> {
         new _$Transaction._(
             transactionId: BuiltValueNullFieldError.checkNotNull(
                 transactionId, 'Transaction', 'transactionId'),
-            type: BuiltValueNullFieldError.checkNotNull(
-                type, 'Transaction', 'type'),
+            t: BuiltValueNullFieldError.checkNotNull(t, 'Transaction', 't'),
             amount: BuiltValueNullFieldError.checkNotNull(
                 amount, 'Transaction', 'amount'),
             comment: comment,

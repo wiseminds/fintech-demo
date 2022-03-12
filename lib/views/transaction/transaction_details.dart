@@ -1,12 +1,14 @@
 import 'package:example/constants/app_colors.dart';
 import 'package:example/constants/dimens.dart';
 import 'package:example/core/extensions/extensions/index.dart';
+import 'package:example/models/transaction.dart';
 import 'package:example/widgets/back.dart';
 import 'package:example/widgets/price_widget.dart';
 import 'package:flutter/material.dart';
 
 class TransactionDetails extends StatelessWidget {
-  const TransactionDetails({Key? key}) : super(key: key);
+  final Transaction data;
+  const TransactionDetails({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +41,12 @@ class TransactionDetails extends StatelessWidget {
                         7.0.h,
                         TransactionDetailsRow(
                             title: 'Recepient', value: 'John'),
-                        TransactionDetailsRow(title: 'Amount', value: 50000.0),
                         TransactionDetailsRow(
-                            title: 'Transaction Date', value: 'John'),
+                            title: 'Amount', value: data.amount),
                         TransactionDetailsRow(
-                            title: 'Reference', value: '0001111AXDRfrqy'),
+                            title: 'Transaction Date', value: data.date),
+                        TransactionDetailsRow(
+                            title: 'Reference', value: data.transactionId),
                         TransactionDetailsRow(
                             title: 'Status',
                             value: '● Successfull',
@@ -87,7 +90,8 @@ class TransactionDetailsRow<T> extends StatelessWidget {
         );
       case double:
         return PriceWidget(
-          price: value as double,
+          // prefix: "${(value as double).isInfinite ? '-' : '+'} ",
+          price: (value as double).abs(),
           fontSize: 15,
           style: _style?.copyWith(fontSize: 15),
         );
