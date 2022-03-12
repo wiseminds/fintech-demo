@@ -17,12 +17,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   spring: ^2.0.2
   flutter_svg: ^1.0.3
+  money_formatter: ^0.0.3
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.7
+  built_value_generator: ^8.1.4
   
 flutter: 
   uses-material-design: true
@@ -36,7 +39,7 @@ flutter:
   fonts:
     - family: Product Sans
       fonts:
-        - asset: asets/fonts/ProductSansRegular.ttf
+        - asset: assets/fonts/ProductSansRegular.ttf
           weight: 400
-        - asset: asets/fonts/ProductSansBold.ttf
+        - asset: assets/fonts/ProductSansBold.ttf
           weight: 700 

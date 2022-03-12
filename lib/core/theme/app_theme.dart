@@ -34,7 +34,7 @@ class AppTheme {
   TextTheme get _textThemeDark => AppTextTheme.textTheme(
         color: Colors.white,
         font: font,
-        primary: AppColors.primary,
+        primary: AppColors.primaryLight,
       );
   TextTheme get _textThemeLight => AppTextTheme.textTheme(
       color: AppColors.textBlack, font: font, primary: AppColors.primary);
@@ -56,8 +56,8 @@ class AppTheme {
       brightness: Brightness.dark,
       background: backgroundColorDark,
       onBackground: Colors.white,
-      primary: AppColors.primary,
-      onPrimary: Colors.white,
+      primary: AppColors.primaryLight,
+      onPrimary: Colors.black,
       error: Colors.redAccent,
       onError: Colors.white,
       surface: Colors.black,
@@ -81,6 +81,7 @@ class AppTheme {
   ThemeData get light => ThemeData.light().copyWith(
       textTheme: _textThemeLight,
       focusColor: accent,
+      cardColor: AppColors.cardColorLight,
       textSelectionTheme: const TextSelectionThemeData(
           cursorColor: AppColors.primary,
           selectionHandleColor: AppColors.primary,

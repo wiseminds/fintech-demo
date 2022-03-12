@@ -1,11 +1,10 @@
-
+import 'package:example/constants/image_assets.dart';
 import 'package:example/core/extensions/extensions/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
 
-import 'home_view.dart'; 
-
+import 'home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,7 +16,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   // navigate after app setup
   Future _navigate(BuildContext c) async {
-    Navigator.of(context).push(CupertinoPageRoute(builder: (c)=> const HomeView()), );
+    Navigator.of(context).pushReplacement(
+      CupertinoPageRoute(builder: (c) => const HomeView()),
+    );
   }
 
   @override
@@ -26,8 +27,10 @@ class _SplashScreenState extends State<SplashScreen> {
       color: context.backgroundColor,
       child: Center(
           child: _Logo(
-              logo: const Hero(
-                  tag: ValueKey('logo'), child: FlutterLogo(size: 100)),
+              logo: Hero(
+                  tag: const ValueKey('logo'),
+                  child: SizedBox.square(
+                      dimension: 100, child: Image.asset(ImageAssets.logo))),
               setUp: _navigate)),
     );
   }
@@ -56,7 +59,7 @@ class __LogoState extends State<_Logo> with SingleTickerProviderStateMixin {
         lowerBound: 0,
         upperBound: 1);
     super.initState();
-    _controller.forward();
+    Future.delayed(const Duration(milliseconds: 700), _controller.forward);
   }
 
   @override
@@ -70,11 +73,9 @@ class __LogoState extends State<_Logo> with SingleTickerProviderStateMixin {
     return Spring.shake(
       animStatus: (status) {
         if (status == AnimStatus.completed) {
-            WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
-          // Future.delayed(const Duration(milliseconds: 500), () {
+          WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
             widget.setUp(context);
-          // });
-            });
+          });
         }
       },
       delay: const Duration(milliseconds: 800),
@@ -86,4 +87,4 @@ class __LogoState extends State<_Logo> with SingleTickerProviderStateMixin {
       ),
     );
   }
-} 
+}

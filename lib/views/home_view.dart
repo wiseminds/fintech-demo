@@ -1,7 +1,9 @@
+import 'package:example/core/extensions/extensions/context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'second_view.dart';
+import 'transaction/transaction_screen.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -9,17 +11,23 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CupertinoNavigationBar(middle: Text('First View')),
+      appBar: CupertinoNavigationBar(
+        middle: Text(
+          'First View',
+          style: context.headline5,
+        ),
+        backgroundColor: context.backgroundColor,
+      ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Go to second view',
+          child: Text('See transactions',
               style: Theme.of(context)
                   .textTheme
                   .bodyText1
                   ?.copyWith(color: Colors.white)),
           onPressed: () {
             Navigator.push(context,
-                CupertinoPageRoute(builder: (c) => const SecondView()));
+                CupertinoPageRoute(builder: (c) => const TransactionScreen()));
           },
         ),
       ),

@@ -10,7 +10,8 @@ class AppTextTheme {
       TextTheme(
           caption: TextStyle(
             fontFamily: font,
-            color: color,
+            color: color.withOpacity(.6),
+            fontSize: 11,
             fontWeight: FontWeight.w400,
           ),
           subtitle1: TextStyle(
@@ -27,13 +28,13 @@ class AppTextTheme {
               fontWeight: FontWeight.w400),
           headline5: TextStyle(
               fontFamily: font,
-              fontSize: 18,
+              fontSize: 14,
               color: color,
               fontWeight: FontWeight.w700),
           headline4: TextStyle(
               fontFamily: font,
-              fontSize: 24,
-              color: color,
+              fontSize: 20,
+              color: primary,
               fontWeight: FontWeight.w700),
           headline3: TextStyle(
               fontFamily: font,
