@@ -5,4 +5,8 @@ class Strings {
 
   static const defaultErrorMessage =
       'Something\'s not right, we\'re looking into it ';
+
+  static const toTransaction = 'See transactions';
+
+  static const transactionDetails = 'Transaction details';
 }

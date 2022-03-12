@@ -1,5 +1,6 @@
 import 'package:example/constants/app_colors.dart';
 import 'package:example/constants/dimens.dart';
+import 'package:example/constants/strings.dart';
 import 'package:example/core/extensions/extensions/index.dart';
 import 'package:example/models/transaction.dart';
 import 'package:example/widgets/back.dart';
@@ -21,7 +22,7 @@ class TransactionDetails extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Back(color: Colors.white),
             23.0.h,
-            Text('Transaction details',
+            Text(Strings.transactionDetails,
                 style: context.headline4?.copyWith(color: Colors.white)),
             24.0.h,
             Material(

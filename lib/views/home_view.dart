@@ -1,3 +1,4 @@
+import 'package:example/constants/strings.dart';
 import 'package:example/core/extensions/extensions/context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class HomeView extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('See transactions',
+          child: Text(Strings.toTransaction,
               style: Theme.of(context)
                   .textTheme
                   .bodyText1
