@@ -3,7 +3,6 @@ import 'package:example/core/extensions/extensions/context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'second_view.dart';
 import 'transaction/transaction_screen.dart';
 
 class HomeView extends StatelessWidget {
