@@ -47,7 +47,8 @@ class TransactionDetails extends StatelessWidget {
                         TransactionDetailsRow(
                             title: 'Transaction Date', value: data.date),
                         TransactionDetailsRow(
-                            title: 'Reference', value: data.transactionId),
+                            title: 'Reference',
+                            value: data.transactionId.toString()),
                         TransactionDetailsRow(
                             title: 'Status',
                             value: '● Successfull',
