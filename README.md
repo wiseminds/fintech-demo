@@ -11,10 +11,10 @@ runs ons android, iOS, windows, macOS, and web
 ### Dark mode
 to try dark mode, change your device mode to dark mode
 
-#### A widget test that runs app from splash screen and taps to transaction page
+#### 
 
-### Run Tests
-flutter test
+### Run Tests (run `flutter test`)
+A widget test that runs app from splash screen and taps to transaction page
 
 
 I am a lover of [SOLID] and [Clean] architectures of programming, to demonstrate a bit of this, I used [get_it] for dependency injection. This helps me instantiate different env depending on the runtime and use a different [ApiProvider] for test.
