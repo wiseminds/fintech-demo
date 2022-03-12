@@ -14,10 +14,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter 
+  built_collection: ^5.1.1
+  built_value: ^8.1.4  
   cupertino_icons: ^1.0.2
-  spring: ^2.0.2
+  flutter_bloc: ^8.0.1
   flutter_svg: ^1.0.3
   money_formatter: ^0.0.3
+  spring: ^2.0.2
 
 
 dev_dependencies:
