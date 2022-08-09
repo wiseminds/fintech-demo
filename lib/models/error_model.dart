@@ -2,7 +2,6 @@ library error_model;
 
 import 'dart:convert';
 
- 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

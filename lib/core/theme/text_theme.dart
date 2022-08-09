@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class AppTextTheme {
   static TextTheme textTheme(
           {required String font,

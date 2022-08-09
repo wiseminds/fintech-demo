@@ -76,7 +76,6 @@ class ExceptionFormater {
     // print(message);
     return ErrorModel((b) => b
       ..message = message
-      
       ..build());
   }
 }

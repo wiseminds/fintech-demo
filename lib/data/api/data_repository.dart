@@ -4,7 +4,7 @@ import 'package:example/core/utils/exception_formater.dart';
 import 'package:flutter/foundation.dart';
 
 import 'api_response.dart';
-import 'remote_repository.dart'; 
+import 'remote_repository.dart';
 
 typedef NetworkCall<T> = Future<T> Function();
 
@@ -16,7 +16,7 @@ abstract class DataRepository with ExceptionFormater {
   Future<ApiResponse<ResultType, Item>> handleRequest<ResultType, Item>(
       NetworkCall<ApiResponse<ResultType, Item>> networkCall,
       {
-        // CacheDescription? cache,
+      // CacheDescription? cache,
       int timeout = 50,
       bool retryWithCache = false,
       bool retry = false}) async {

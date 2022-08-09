@@ -34,6 +34,5 @@ class TransactionCubit extends Cubit<TransactionState> {
           message: (response.error as ErrorModel?)?.message ??
               Strings.defaultErrorMessage));
     }
-  
   }
 }

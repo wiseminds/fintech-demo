@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension DoubleExt on double { 
-
+extension DoubleExt on double {
   /// a spacer widget
   Spacer get s => const Spacer();
 
@@ -26,7 +25,7 @@ extension IntExt on int {
   // double get height => ScreenUtil().setHeight(this);
 
   /// returns value as duration in seconds
-  Duration get inMilliseconds => Duration(milliseconds: this); 
+  Duration get inMilliseconds => Duration(milliseconds: this);
 
   double get stepToMeters => (this / 1312.33595801) * 1000;
 }

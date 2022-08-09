@@ -6,9 +6,9 @@ import 'data/api/api_provider.dart';
 import 'data/providers/http_api_provider.dart';
 
 class DependencyInjection {
-  static bootstrap()  async{
+  static bootstrap() async {
     GetIt.I.registerSingleton<ApiProvider>(HttpApiProvider());
     GetIt.I.registerSingleton<Env>(kDebugMode ? Developemt() : Production());
-      await GetIt.instance.allReady();
+    await GetIt.instance.allReady();
   }
 }
