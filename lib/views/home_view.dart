@@ -1,5 +1,5 @@
 import 'package:example/constants/strings.dart';
-import 'package:example/core/extensions/extensions/context.dart';
+import 'package:example/core/extensions/context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

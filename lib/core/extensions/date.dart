@@ -58,10 +58,12 @@ extension Format on DateTime {
     if (_date.year != now.year) return _date.readableFormat;
     if (_date.isAfter(afterTommorow)) return _date.readableFormat;
     if (_date.isAfter(midNightTommorow)) return 'Tommorow';
-    if ((_date.isBefore(midNightTommorow) && (_date.isAfter(midNightToday))))
+    if ((_date.isBefore(midNightTommorow) && (_date.isAfter(midNightToday)))) {
       return 'Today';
-    if ((_date.isAfter(midNightYesterday) && (_date.isBefore(midNightToday))))
+    }
+    if ((_date.isAfter(midNightYesterday) && (_date.isBefore(midNightToday)))) {
       return 'Yesterday';
+    }
     return _date.readableFormat;
   }
 
@@ -74,16 +76,18 @@ extension Format on DateTime {
   String get readableFormatRefinedMin {
     var now = DateTime.now();
     var _date = this;
-    if (_date == null) return '';
     if (_date.year != now.year) return _date.readableFormat;
     if (_date.difference(now).inDays > 1) return _date.readableFormatMin;
     if (_date.difference(now).inDays == 1) return 'Tommorow';
-    if (_date.difference(now).inDays == 0 && _date.day == now.day)
+    if (_date.difference(now).inDays == 0 && _date.day == now.day) {
       return _date.time; //?? 'Today';
-    if (_date.difference(now).inDays == 0 && _date.day > now.day)
+    }
+    if (_date.difference(now).inDays == 0 && _date.day > now.day) {
       return 'Tommorow';
-    if (_date.difference(now).inDays == 0 && _date.day < now.day)
+    }
+    if (_date.difference(now).inDays == 0 && _date.day < now.day) {
       return 'Yesterday';
+    }
     if (_date.difference(now).inDays == -1) return 'Yesterday';
     return _date.readableFormatMin;
   }
@@ -97,12 +101,15 @@ extension Format on DateTime {
     if (_date.year != now.year) return _date.readableFormatNoYear;
     if (_date.difference(now).inDays > 1) return _date.readableFormatNoYear;
     if (_date.difference(now).inDays == 1) return 'Tommorow';
-    if (_date.difference(now).inDays == 0 && _date.day == now.day)
+    if (_date.difference(now).inDays == 0 && _date.day == now.day) {
       return 'Today';
-    if (_date.difference(now).inDays == 0 && _date.day > now.day)
+    }
+    if (_date.difference(now).inDays == 0 && _date.day > now.day) {
       return 'Tommorow';
-    if (_date.difference(now).inDays == 0 && _date.day < now.day)
+    }
+    if (_date.difference(now).inDays == 0 && _date.day < now.day) {
       return 'Yesterday';
+    }
     if (_date.difference(now).inDays == -1) return 'Yesterday';
     return _date.readableFormat;
   }
@@ -120,14 +127,15 @@ extension Format on DateTime {
   String _formatTime(int hour, int min) {
     String m = '$min';
     if (min < 10) m = '0$min';
-    if (hour < 10)
+    if (hour < 10) {
       return '0$hour:$min AM';
-    else if (hour < 13) {
+    } else if (hour < 13) {
       if (hour == 12 && min == 0) return '$hour:00 NOON';
       if (hour == 12) return '$hour:$min PM';
       return '$hour:$min AM';
-    } else
+    } else {
       return '${hour - 12}:$m PM';
+    }
   }
 
   String get time {

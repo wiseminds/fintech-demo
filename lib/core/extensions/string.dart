@@ -3,7 +3,7 @@ extension Str on String {
   String toTitleCase() {
     List<String> s = toLowerCase().split(' ');
     String result = '';
-    if (this.isEmpty) return '';
+    if (isEmpty) return '';
 
     for (var e in s) {
       if (e[0].trim().isNotEmpty) {

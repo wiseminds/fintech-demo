@@ -6,37 +6,38 @@ class AppTextTheme {
           required Color color,
           required Color primary}) =>
       TextTheme(
-          caption: TextStyle(
+        bodySmall: TextStyle(
+          fontFamily: font,
+          color: color.withOpacity(.6),
+          fontSize: 11,
+          fontWeight: FontWeight.w400,
+        ),
+        subtitle1: TextStyle(
+          fontFamily: font,
+          color: primary,
+          fontSize: 24,
+          fontWeight: FontWeight.w600,
+        ),
+        bodyMedium: TextStyle(
+            fontFamily: font, color: color, fontWeight: FontWeight.w400),
+        bodyLarge: TextStyle(
             fontFamily: font,
             color: color.withOpacity(.6),
-            fontSize: 11,
-            fontWeight: FontWeight.w400,
-          ),
-          subtitle1: TextStyle(
-            fontFamily: font,
-            color: primary,
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-          ),
-          bodyText1: TextStyle(
-              fontFamily: font, color: color, fontWeight: FontWeight.w400),
-          bodyText2: TextStyle(
-              fontFamily: font,
-              color: color.withOpacity(.6),
-              fontWeight: FontWeight.w400),
-          headline5: TextStyle(
-              fontFamily: font,
-              fontSize: 14,
-              color: color,
-              fontWeight: FontWeight.w700),
-          headline4: TextStyle(
-              fontFamily: font,
-              fontSize: 20,
-              color: primary,
-              fontWeight: FontWeight.w700),
-          headline3: TextStyle(
-              fontFamily: font,
-              fontSize: 32,
-              color: color,
-              fontWeight: FontWeight.w700));
+            fontWeight: FontWeight.w400),
+        //   he: TextStyle(
+        //       fontFamily: font,
+        //       fontSize: 14,
+        //       color: color,
+        //       fontWeight: FontWeight.w700),
+        //   headline4: TextStyle(
+        //       fontFamily: font,
+        //       fontSize: 20,
+        //       color: primary,
+        //       fontWeight: FontWeight.w700),
+        //   headline3: TextStyle(
+        //       fontFamily: font,
+        //       fontSize: 32,
+        //       color: color,
+        //       fontWeight: Fon
+      );
 }

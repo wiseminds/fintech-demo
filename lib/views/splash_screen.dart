@@ -1,5 +1,5 @@
 import 'package:example/constants/image_assets.dart';
-import 'package:example/core/extensions/extensions/index.dart';
+import 'package:example/core/extensions/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spring/spring.dart';
